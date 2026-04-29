@@ -1,0 +1,103 @@
+
+##################################
+# OS / Editor junk
+##################################
+.DS_Store
+Thumbs.db
+
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+
+.vscode/
+.idea/
+
+##################################
+# LaTeX build artifacts
+##################################
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.lof
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.synctex(busy)
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# Latexmk
+*.latexmk
+
+##################################
+# PDFs (choose ONE option)
+##################################
+
+# Option A: Ignore all PDFs (recommended if PDFs are build outputs)
+# *.pdf
+
+# Option B: Track PDFs, but ignore common generated ones
+# Uncomment if you *do* want final PDFs versioned
+# !*.pdf
+
+##################################
+# Python
+##################################
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+
+##################################
+# MATLAB / Octave
+##################################
+*.asv
+*.m~
+*.mex*
+slprj/
+
+##################################
+# Jupyter
+##################################
+.ipynb_checkpoints/
+
+##################################
+# C / C++ / Fortran (common in scientific repos)
+##################################
+*.o
+*.obj
+*.so
+*.dylib
+*.exe
+
+##################################
+# Data / results (optional)
+##################################
+# Uncomment if you generate large outputs
+# *.csv
+# *.tsv
+# *.h5
+# *.hdf5
+# *.mat
+# *.npy
+# *.npz
+
+##################################
+# Logs
+##################################
+*.log
+
