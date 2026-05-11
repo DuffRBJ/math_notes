@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+
+%%% These are some packages that are useful
+\usepackage{amsfonts, lipsum}
+\usepackage[scr]{rsfso}
+\usepackage{amsmath,amssymb, amscd,amsbsy, bbm, amsthm, enumerate}
+\usepackage[top=1in, bottom=1in, left=.45in, right=.45in]{geometry}
+\usepackage[unicode]{hyperref}
+\usepackage{tikz, xcolor, fancyhdr}
+\usepackage{graphicx, caption, subcaption}
+
+%%% Page formatting
+%\setlength{\headsep}{30pt}
+\setlength{\parindent}{0pt}
+\setlength{\textheight}{9in}
+
+
+
+%%% These define our question environment and help number things correctly
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{question}[thm]{Question}
+\newtheorem{questionS}[thm]{***Question}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{DEF}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+
+
+%%% These are some shortcuts that are handy
+\def\real{{\mathbb R}}
+\def\Natural{\mathbb{N}}
+\def\dx{\textnormal{dx}}
+\def\dy{\textnormal{dy}}
+\def\dz{\textnormal{dz}}
+\def\dt{\textnormal{dt}}
+\def\ds{\textnormal{ds}}
+\def\dw{\textnormal{dw}}
+\def\Re{\textnormal{Re}}
+\def\Im{\textnormal{Im}}
+\def\exp{\textnormal{exp}}
+\def\interior{\textnormal{interior}}
+\def\al{\alpha}
+\def\del{\delta}
+\def\Del{\Delta}
+\def\gam{\gamma}
+\def\Gam{\Gamma}
+\def\Om{\Omega}
+\def\ep{\varepsilon}
+\def\lam{\lambda}
+\def\rational{{\mathbb Q}}
+\def\integer{{\mathbb Z}}
+\def\Q{{\mathbb Q}}
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\grad{\nabla}
+\def\C{\mathcal C}
+\def\P{\mathbb{P}}
+\def\T{\mathcal T}
+\def\I{\mathcal I}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\inner}[1]{\langle #1 \rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\spanvect}{\textnormal{span}}
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup}
+\def\intersect{\cap}
+\def\Intersect{\bigcap}
+\renewcommand{\neg}{\mathord{\sim}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\name}{Duff Baker-Jarvis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Document Starts now
+\begin{document}
+\title{Analysis}
+\date{\today}
+\author{Dr. Duff Baker-Jarvis}
+\maketitle
+
+\begin{thm}[Rolle's Theorem]
+
+\end{thm}
+
+\begin{thm}[Mean Value Theorem]
+    Let $f:\R \to \R$ be a function that is continuous on $[a,b]$ and differentiable on $(a,b)$. Then there exists a $c\in (a,b)$ such that
+   $$ f'(c)= \frac{f(b)-f(a)}{b-a} $$  
+\end{thm}
+
+Proof: Consider the function $g(x)=f(x)- \frac{f(b)-f(a)}{b-a}(x-a)$. Then $ g(a)=f(a) $ and $ g(b)=f(a) $. Thus by Rolle's Theorem there exists a $c\in (a,b)$ s.t. $ g'(c)=0 $ and the rest follows. $\square$
+
+\begin{thm}[Taylor's Theorem]
+    Let $ f: \R \to \R $ be a  function that has its first $n$ derivatives continuous on $[a,b]$ and differentiable on $ (a,b) $. Fix a point to expand around, $ x_0 $. Let $ x \in [a,b]$. Then for any $n\in \N$ and any $c\in (a,b)$ there exists and $x_0\in (a,c)$ such that
+    $$f(c)= \sum_{k=0}^{n} \frac{f^{(n)}(x_0)}{k!} (x-x_0)^k + \frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$$  
+
+\end{thm}
+
+Idea of Proof:
+\begin{itemize}
+    \item Construct a function $F(t)$ such that 
+    \begin{enumerate}
+	\item $ F $ is continuous on $ (a,b) $ and differentiable on $ [a,b] $.
+	\item $F(x)=f(x)$ and $ F(x_0)=f(x) $ 
+	\item $F'(t)=0$ forces the correct coefficient of $ (x-x_0)^{n+1} $ 
+    \end{enumerate}
+\item Use the mean value theorem on $F(t)$.
+\end{itemize}
+
+
+Noteworthy property of Modified Taylor Series:
+If $P(t)= \sum_{k=0}^{n} \frac{f^{(k)}(t)}{k!} (x-t)^k$ 
+then $$ P'(t)= \frac{f^{(n+1)}(t)}{n!}(x-t)^{n} $$ 
+
+
+Proof:( following Lay 28.2)
+Let $ x\in [a,b]$ and fix $ n\in \N $. Let
+$$F(t)= \sum_{k=0}^{n} \frac{f^{(k)}(t)}{k!}(x-t)^k + M(x-t)^{n+1}$$ 
+where $M$ is the unique solution to 
+$$ f(x)= \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k +M(x-x_0)^{n+1}.  $$ 
+Note that by the noteworthy property mentioned above we have
+$$ F'(t)= \frac{f^{(n+1)}(t)}{n!}(x-t)^n + (n+1)M(x-t)^n.$$ 
+Note also that $F(x)=F(x_0)=f(x)$, so invoking the mean value theorem (or Rolle's Theorem) we obtain that there exists a $ c $ between $x$ and $ x_0 $ strictly such that
+$$ F'(t)=0=\frac{f^{(n+1)}(t)}{n!}(x-t)^n + (n+1)M(x-t)^n.$$ 
+Solving for $M$ gives $M= \frac{f^{(n+1)}(x_0)}{(n+1)!}$ as required. $\square$
+
+\end{document}
