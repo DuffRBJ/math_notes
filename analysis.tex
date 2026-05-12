@@ -23,9 +23,9 @@
 \newtheorem{questionS}[thm]{***Question}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{lem}[thm]{Lemma}
-\newtheorem{DEF}[thm]{Definition}
+\newtheorem{defn}[thm]{Definition}
 \newtheorem{rem}[thm]{Remark}
-
+\newtheorem{ex}[thm]{Example}
 
 %%% These are some shortcuts that are handy
 \def\real{{\mathbb R}}
@@ -73,15 +73,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\name}{Duff Baker-Jarvis}
@@ -94,8 +85,25 @@
 \author{Dr. Duff Baker-Jarvis}
 \maketitle
 
-\begin{thm}[Rolle's Theorem]
 
+\begin{defn}[Compactness]
+    A set $S\subset U$ (in a topological space) is called \textbf{compact} if for every open cover $ \mathcal{T} $ of $ S $ there is a finite subcover of $ S $. 
+\end{defn}
+
+
+\begin{thm}\label{thm-continuous_compact}
+The image of a compact set under a continuous function is compact.
+\end{thm}
+Proof idea: If $ f:D\to \R $ is a continuous function and $ D $ is compact, then let $ \mathcal{T} $ be any open cover of $ f(D) $. Then taking the preimage of each $ T\in \mathcal{T} $ gives an open cover of $D$. This has a finite subcover, $ \mathcal{T}_0 $. Then mapping these back to elements of $ \mathcal{T} $ gives a finite subcover of $ f(D) $.
+
+\begin{thm}
+Let $ S $ be a compact set on $ \R $ and $ f:S\to \R $ be continuous. Then $ f $ achieves both its maximum and minimum on $ S $. 
+\end{thm}
+
+Proof: By \ref{thm-continuous_compact} theorem, $ f(S) $ is compact. By Heine-Borel, it is closed and bounded and hence $ \sup f(S)=\max f(S)$ and likewise for the minimum. $ \square $  
+
+\begin{thm}[Rolle's Theorem]
+    Let $ f:\R \to \R $ be a function continuous on $ [a,b] $ and differentiable on $ (a,b) $ such that $ f(a)=f(b) $. Then there exists $ c \in (a,b) $ s.t. $ f'(c)=0 $. 
 \end{thm}
 
 \begin{thm}[Mean Value Theorem]
@@ -106,8 +114,8 @@
 Proof: Consider the function $g(x)=f(x)- \frac{f(b)-f(a)}{b-a}(x-a)$. Then $ g(a)=f(a) $ and $ g(b)=f(a) $. Thus by Rolle's Theorem there exists a $c\in (a,b)$ s.t. $ g'(c)=0 $ and the rest follows. $\square$
 
 \begin{thm}[Taylor's Theorem]
-    Let $ f: \R \to \R $ be a  function that has its first $n$ derivatives continuous on $[a,b]$ and differentiable on $ (a,b) $. Fix a point to expand around, $ x_0 $. Let $ x \in [a,b]$. Then for any $n\in \N$ and any $c\in (a,b)$ there exists and $x_0\in (a,c)$ such that
-    $$f(c)= \sum_{k=0}^{n} \frac{f^{(n)}(x_0)}{k!} (x-x_0)^k + \frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$$  
+    Let $ f: \R \to \R $ be a  function that has its first $n$ derivatives continuous on $[a,b]$ and differentiable on $ (a,b) $. Fix a point to expand around, $ x_0 $. Let $ x \in [a,b]$ with $ x\neq x_0 $. Then for any $n\in \N$ there exists and $c \in (x,x_0)$ such that
+    $$f(x)= \sum_{k=0}^{n} \frac{f^{(n)}(x_0)}{k!} (x-x_0)^k + \frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}$$  
 
 \end{thm}
 
@@ -138,5 +146,29 @@ $$ F'(t)= \frac{f^{(n+1)}(t)}{n!}(x-t)^n + (n+1)M(x-t)^n.$$
 Note also that $F(x)=F(x_0)=f(x)$, so invoking the mean value theorem (or Rolle's Theorem) we obtain that there exists a $ c $ between $x$ and $ x_0 $ strictly such that
 $$ F'(t)=0=\frac{f^{(n+1)}(t)}{n!}(x-t)^n + (n+1)M(x-t)^n.$$ 
 Solving for $M$ gives $M= \frac{f^{(n+1)}(x_0)}{(n+1)!}$ as required. $\square$
+
+\begin{ex}
+    Let $f(x)=x^2+2x+1$ on $ [0,3] $ with $x_0=0$. Let $n=1$. Then there should exist a $c$ such that $$ f(2)=1+2(x-0)+ \frac{f^{(n+1)}(c)}{(n+1)!}(x-0)^{n+1}
+$$ 
+$$ 1+2x+ \frac{2}{2}x^2$$ 
+so we recover our polynomial.
+\end{ex}
+
+We now note that we can rephrase this theorem in terms of a remainder.
+
+\begin{thm}[Taylor's Remainder Theorem]
+    Let $f:\R\to \R$ be $n+1$ times differentiable and $x_0\in \R$. Then if we approximate
+$$ f(x)\approx p_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^n  $$ 
+    then their exists a $c$ between $ x $ and $ x_0 $ such that
+   $$ f(x)-p_n(x)= \frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}.$$ 
+   Note thought, that $ c $ depends on $ x $.
+\end{thm}
+
+\begin{rem}
+Note that if $f$ is a polynomial of degree $k$, then $p_n=f$ for all $n\geq k$ and all $x_0\in \R$.
+\end{rem}
+
+
+
 
 \end{document}
