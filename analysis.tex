@@ -168,6 +168,17 @@ $$ f(x)\approx p_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^n  $$
 Note that if $f$ is a polynomial of degree $k$, then $p_n=f$ for all $n\geq k$ and all $x_0\in \R$.
 \end{rem}
 
+\begin{lem}
+    Let $f$ be differentiable in a neighborhood of $c$. Then $$ f''(c)= \lim \limits_{h\to 0} \frac{f(c+h)+f(c-h)-2f(c)}{h^2} $$ 
+    $$  f''(c)= \lim \limits_{h\to 0} \frac{(f(c+h)-f(c))+(f(c-h)-f(c))}{h^2}$$ 
+\end{lem}
+
+Proof: Starting with the limit and using L'Hospital's rule we get:
+
+    $$  f''(c)= \lim \limits_{h\to 0} \frac{f(c+h)+f(c-h)-2f(c)}{h^2}=  \lim \limits_{h\to 0} \frac{f'(c+h)-f'(c-h)-2f'(c)}{2h}$$ 
+    $$ = \lim \limits_{h\to 0} \frac{f'(c+h)-f(c-h)+2f'(c-h)-2f'(c)}{2h}$$
+    $$ =  \lim \limits_{h\to 0} \frac{1}{2}\frac{f'(c+h)-f(c-h)}{h} +2 \lim \limits_{h\to 0} \frac{f'(c-h)-f'(c)}{2h}$$
+
 
 
 
