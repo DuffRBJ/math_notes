@@ -85,6 +85,19 @@
 \author{Dr. Duff Baker-Jarvis}
 \maketitle
 
+\section{Helpful Lemmas \& Inequalities}
+\begin{lem}
+\begin{itemize}
+    \item Let $ x,y\in \R $. If for all $ \varepsilon>0 $ we have $ x-y<\varepsilon $, then $x\leq y$.
+    \item Let $x,y \in \R$. If for all $ \varepsilon>0 $  we have $ |x-y|<\varepsilon $, then $ x=y $.
+\end{itemize}
+\end{lem}
+
+Proof: Note that if $ x>y $ then $ x-y\geq \frac{x-y}{2}=\varepsilon $, which proves the contrapositve.
+The second part followsw from the first since $ |x-y|<\varepsilon \implies x-y<\varepsilon \land y-x <\varepsilon$.
+
+
+\section{Differentiation}
 
 \begin{defn}[Compactness]
     A set $S\subset U$ (in a topological space) is called \textbf{compact} if for every open cover $ \mathcal{T} $ of $ S $ there is a finite subcover of $ S $. 
@@ -188,6 +201,40 @@ Proof: Starting with the limit and using L'Hospital's rule we get:
   
     \end{lem}
 
+    \section{Integration}
+    \begin{defn}
+	A partition of $ [a,b] $ is an ordered, finite subset $ P $ of $ [a,b] $ indexed from $ 0  $ to $ n $. 
+	$$ P = \{ a=x_0, x_1, x_2, \ldots, x_n=b \} $$ 
+    \end{defn}
+
+    \begin{defn}
+	For a partition $ P $ of $ [a,b] $ define the \textbf{Upper Sum} of a bounded functino $f$ to be
+	$$ U(f,P,[a,b])= \sum_{i=1}^{n} \Delta x_i \cdot \sup \{ f(x): x\in [x_{i-1}, x_i] \}  $$ 
+	Similarly, the lower sum is
+	
+	$$ L(f,P,[a,b])= \sum_{i=1}^{n} \Delta x_i \cdot \inf \{ f(x): x\in [x_{i-1}, x_i] \}  $$ 
+    \end{defn}
+
+    \begin{defn}
+    The Riemman Integral of $ f $ if it exists is 
+    $$ \int_{a}^{b} f(x)  dx =\inf_{Q\geq P} U(f,Q,[a,b]) = \sup_{Q\geq P} L(f,Q,[a,b]) $$ 
+   for any starting $ P $ (or just $ \{ a,b \} $  if the two numbers agree. 
+    \end{defn}
+    
+    It may be interesting to note that  the set of partitions is a sublattice of the lattice of sets with $ \cup $ as a join and $ \cap $  as a meet (or vice versa).
+
+    \begin{lem}
+    Note that for any two partitions $P$, $Q$ we have
+    $$ L(f,P) \leq U(f,Q) $$ 
+    \end{lem}
+
+    Proof: Consider the join $ T=P\cup Q $, then by monotonicity of $ L $  and $ U $ under refinement we have 
+    $$ L(F,P) \leq L(f,T)\leq U(f,T)\leq U(f,Q) $$ . $ \square $ 
+
+    \begin{ex}
+	Note the Dirichlet function is not integrable by showing $ U(f)=1 $ but $ L(f)=0 $ over $ [0,1] $.
+    \end{ex}
+    
 
 
 
