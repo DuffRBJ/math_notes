@@ -169,15 +169,24 @@ Note that if $f$ is a polynomial of degree $k$, then $p_n=f$ for all $n\geq k$ a
 \end{rem}
 
 \begin{lem}
-    Let $f$ be differentiable in a neighborhood of $c$. Then $$ f''(c)= \lim \limits_{h\to 0} \frac{f(c+h)+f(c-h)-2f(c)}{h^2} $$ 
+    Let $f$ exist in a neighborhood of $c$ and that $f''(c)$ exists. Then $$ f''(c)= \lim \limits_{h\to 0} \frac{f(c+h)+f(c-h)-2f(c)}{h^2} $$ 
     $$  f''(c)= \lim \limits_{h\to 0} \frac{(f(c+h)-f(c))+(f(c-h)-f(c))}{h^2}$$ 
 \end{lem}
 
 Proof: Starting with the limit and using L'Hospital's rule we get:
 
-    $$  f''(c)= \lim \limits_{h\to 0} \frac{f(c+h)+f(c-h)-2f(c)}{h^2}=  \lim \limits_{h\to 0} \frac{f'(c+h)-f'(c-h)-2f'(c)}{2h}$$ 
-    $$ = \lim \limits_{h\to 0} \frac{f'(c+h)-f(c-h)+2f'(c-h)-2f'(c)}{2h}$$
-    $$ =  \lim \limits_{h\to 0} \frac{1}{2}\frac{f'(c+h)-f(c-h)}{h} +2 \lim \limits_{h\to 0} \frac{f'(c-h)-f'(c)}{2h}$$
+    $$  \lim \limits_{h\to 0} \frac{f(c+h)+f(c-h)-2f(c)}{h^2}=  \lim \limits_{h\to 0} \frac{f'(c+h)-f'(c-h)}{2h}$$ 
+    $$ =\lim_{h \to 0} \frac{f'(c+h)-f'(c)+ (f'(c)-f'(c-h))}{2h} $$ 
+    $$ = \frac{2f''(c)}{2} = f''(c)  \square.$$ 
+
+    \begin{lem} The following are equivalent definitions of the derivative.
+	\begin{itemize}
+\item The usual one
+\item $ f'(c)= \lim_{x\to c} \frac{f(x)-f(c)}{x-c} $  
+	    \item   $ f'(c)=\lim_{h\to 0} \frac{f(c+h)-f(c-h)}{2h} $ 
+	\end{itemize}
+  
+    \end{lem}
 
 
 
