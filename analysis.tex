@@ -218,7 +218,7 @@ Proof: Starting with the limit and using L'Hospital's rule we get:
     \begin{defn}
     The Riemman Integral of $ f $ if it exists is 
     $$ \int_{a}^{b} f(x)  dx =\inf_{Q\geq P} U(f,Q,[a,b]) = \sup_{Q\geq P} L(f,Q,[a,b]) $$ 
-   for any starting $ P $ (or just $ \{ a,b \} $  if the two numbers agree. 
+   for any starting $ P $ (or just $ \{ a,b \} $)  if the two numbers agree. 
     \end{defn}
     
     It may be interesting to note that  the set of partitions is a sublattice of the lattice of sets with $ \cup $ as a join and $ \cap $  as a meet (or vice versa).
@@ -234,6 +234,21 @@ Proof: Starting with the limit and using L'Hospital's rule we get:
     \begin{ex}
 	Note the Dirichlet function is not integrable by showing $ U(f)=1 $ but $ L(f)=0 $ over $ [0,1] $.
     \end{ex}
+
+    \begin{ex}
+    Let's do an integral from the defition.
+    $$ \int_{0}^{b} x  dx = \frac{b^2}{2} $$ 
+    \end{ex}
+
+    Let $P_n= \{ k \frac{b}{n}\; :\; 0\leq k\leq n \}$ be a partition for each $n\geq 1$.
+    The we compute $ U(x,P_n,[0,b]) $ and $ L $ as well.
+    Since the sup over any interval is always at the right hand side for $ f(x)=x $ we have 
+    $$ U(x,P_n,[0,b])= \sum_{k=1}^{n}k \frac{b}{n} \left( \frac{b}{n} \right) = \frac{b^2(n+1)}{2n}  $$ 
+$$ L(x,P_n,[0,b]) = \sum_{k=0}^{n-1} \frac{kb}{n}\left( \frac{b}{n} \right)= \frac{b^2(n-1)}{2}  $$ 
+Note now that as $ n \to \infty $ both $L$ and $U$ approach $ \frac{b^2}{2} $.
+   
+
+    
     
 
 
