@@ -246,11 +246,43 @@ Proof: Starting with the limit and using L'Hospital's rule we get:
     $$ U(x,P_n,[0,b])= \sum_{k=1}^{n}k \frac{b}{n} \left( \frac{b}{n} \right) = \frac{b^2(n+1)}{2n}  $$ 
 $$ L(x,P_n,[0,b]) = \sum_{k=0}^{n-1} \frac{kb}{n}\left( \frac{b}{n} \right)= \frac{b^2(n-1)}{2}  $$ 
 Note now that as $ n \to \infty $ both $L$ and $U$ approach $ \frac{b^2}{2} $.
-   
 
-    
-    
+\begin{thm}
+The following classes of functions are Riemann Integrable:
+\begin{enumerate}
+    \item Monotone functions on $[a,b]$.
+    \item Continuous functins on $[a,b]$.
+\item (Lebesgue-Vitali Thm) A bounded function on a compact interval $ [a,b] $ is Riemann Integrable if and only iff it is continuous almost everywhere.
+\item A bounded function on $[a,b]$ that has only a countable set of discontinuities, then it is Riemann Integrable.
+\end{enumerate}
+
+\end{thm}
 
 
+Proof:\\
+(1) Let $ \varepsilon>0 $ and choose $n$ such that $ \frac{b-a}{n}f(b)<\varepsilon $. Then consider the uniform partition of $ [a,b] $ into $n$ parts, $ P_n $.
+$$ U(f,P_n)-L(f,P_n) = \sum_{i=1}^{n} (f(x_i)-f(x_{i-1})) \Delta x$$ 
+which telescopes to 
+$$ f(b)\Delta x<\varepsilon.$$ 
+and we are done.\\
+
+(2) Recall that a continuous function on a compact interval is uniformly continuous, meaning for any $ \varepsilon>0 $, there is a uniform $ \delta>0 $ such that whenever $|x-y|<\delta$ we have $ |f(x)-f(y)|<\varepsilon $. Observe that
+$$ U(f,P_n)-L(f,P_n) = \sum_{k=1}^{n} (\sup_{[x_{i-1},x_i]}f -  \inf_{[x_{i-1},x_i]}f)\Delta x $$ 
+so that choosing $ \delta $ so that $ |f(x)-f(y)|< \frac{\varepsilon}{b-a} $ and $n$ large enough that $ \Delta x<\delta $  gives
+$$ \sum_{i=1}^{n} (\sup_{[x_{i-1},x_i]}f -  \inf_{[x_{i-1},x_i]}f)\Delta x < \sum_{i=1}^{n} \frac{\varepsilon}{b-a} \Delta x =\varepsilon $$ \\
+
+
+(3) We will come back to prove some other time.\\
+
+(4) Follows from (3).
+
+
+\begin{thm}
+    Let $f,g$ be integrable functions on $ [a,b] $. Then 
+    \begin{enumerate}
+	\item For any $k\in \R$ we have $\int_a^b kf=k \int_{a}^{b} f$.
+	\item $ \int_{a}^{b} f+g = \int_{a}^{b} f + \int_{a}^{b}  g.    $ 
+    \end{enumerate}
+\end{thm}
 
 \end{document}
