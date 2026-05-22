@@ -23,6 +23,7 @@
 \newtheorem{questionS}[thm]{***Question}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{rem}[thm]{Remark}
 \newtheorem{ex}[thm]{Example}
@@ -284,5 +285,24 @@ $$ \sum_{i=1}^{n} (\sup_{[x_{i-1},x_i]}f -  \inf_{[x_{i-1},x_i]}f)\Delta x < \su
 	\item $ \int_{a}^{b} f+g = \int_{a}^{b} f + \int_{a}^{b}  g.    $ 
     \end{enumerate}
 \end{thm}
+
+\begin{thm}
+    If $ f $ is integrable on both $[a,b] $ and $ [b,c] $, then $ f $ is integrable on $ [a,c] $ and we have 
+    $$ \int_{a}^{c} f = \int_{a}^{b} f+ \int_{b}^{c}f.    $$ 
+\end{thm}
+
+
+\begin{thm}
+    If $ f $ is integrable on $ [a,b] $, and $ g $ is continuous on a compact interval containing $ f([a,b]) $, then $ g\circ f $ is integrable on $ [a,b] $.
+\end{thm}
+
+Proof Idea: Vaguely speaking, since $ g $ is uniformly continuous, and $ f $ is integrable, $ f $ should be continuous almost everywhere. Hence the spots that have potentially large variation occur on a small set, and the rest can be handled with the uniform continuity of $ g $(ish). So choose a suitable partition $ P $ and split the subintervals into two categories. Those that $ |f(x_{i-1})-f(x_i)|<\delta $ and those that fail this. Show both sets have $ U-L< \frac{\varepsilon}{2} $. 
+
+
+\begin{cor}
+    If $ f $ is integrable on $ [a,b] $, then so is $  |f| $ and furthermore
+    $$ \left|\int_{a}^{b}f(x)   dx \right|\leq \int_{a}^{b} |f(x)|  dx   $$ 
+\end{cor}
+
 
 \end{document}
