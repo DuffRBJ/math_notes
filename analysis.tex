@@ -35,8 +35,6 @@
 \def\dy{\textnormal{dy}}
 \def\dz{\textnormal{dz}}
 \def\dt{\textnormal{dt}}
-\def\ds{\textnormal{ds}}
-\def\dw{\textnormal{dw}}
 \def\Re{\textnormal{Re}}
 \def\Im{\textnormal{Im}}
 \def\exp{\textnormal{exp}}
@@ -69,6 +67,7 @@
 \def\intersect{\cap}
 \def\Intersect{\bigcap}
 \renewcommand{\neg}{\mathord{\sim}}
+\newcommand{\ds}{\displaystyle}
 
 
 
@@ -298,11 +297,40 @@ $$ \sum_{i=1}^{n} (\sup_{[x_{i-1},x_i]}f -  \inf_{[x_{i-1},x_i]}f)\Delta x < \su
 
 Proof Idea: Vaguely speaking, since $ g $ is uniformly continuous, and $ f $ is integrable, $ f $ should be continuous almost everywhere. Hence the spots that have potentially large variation occur on a small set, and the rest can be handled with the uniform continuity of $ g $(ish). So choose a suitable partition $ P $ and split the subintervals into two categories. Those that $ |f(x_{i-1})-f(x_i)|<\delta $ and those that fail this. Show both sets have $ U-L< \frac{\varepsilon}{2} $. 
 
+\begin{lem}
+    If $ f $ is integrable on $ [a,b] $, the $ f $ is bounded on $ [a,b] $. 
+\end{lem}
+
+Proof:\\
+By contrapositive. Suppose $ f $ not bounded. Then there must be an infinite sequence of points $ (x_n) $ such that $\ds \lim_{n\to \infty} x_n = \pm\infty$
+(say by choosing successively points higher than $n $ for each $ n\in \N $). Let $ P $ be any partition of $ [a,b] $. Then  there must be a subinterval $ [c,d] $ in the partition on which $f$ is unbounded. Thus either $ U(f,P) $ or $ L(f,P) $ is undefined. Hence $ U $ or $ L $ or both will not exist (as a real number). 
 
 \begin{cor}
     If $ f $ is integrable on $ [a,b] $, then so is $  |f| $ and furthermore
     $$ \left|\int_{a}^{b}f(x)   dx \right|\leq \int_{a}^{b} |f(x)|  dx   $$ 
 \end{cor}
 
+\begin{thm}[Fundamental Theorem of Calculus]
+    \begin{enumerate}
+	\item (Part 1) Let $ f  $ be an integrable function. Then
+	    $$F(x)= \int_{a}^{x} f(t)  dt  $$ 
+	    is a uniformly continuous function. Furthermore, if $f$ is continuous at $c$, then $ f $ is differentiable at $ c $ and
+	    $$ F'(c)=f(c). $$ 
+	\item (Part 2) If $ f $ is differentiable on $ [a,b] $, then 
+	    $$ \int_{a}^{b} f'(x)  dx =f(b)-f(a). $$ 
+    \end{enumerate}
+\end{thm}
+Proof:\\
+(Part 1) Uniform continuity follows from observing that
+$$ |F(x)-F(y)| = \left|\int_{x}^{y} f(t)  dt\right|  $$ 
+and noting that since $ f $ is integrable, then $ f $ is bounded. Let $ B $ be such that $ |f(t)|<B $ for all $ t\in [a,b] $. Then 
+$$ |F(x)-F(y)|= \left|\int_{x}^{y} f(t)  dt\right|\leq \int_{x}^{y} |f(t)|  dt < B(y-x). $$ 
+Thus, for a given $ \varepsilon>0 $, set $ \delta= \frac{\varepsilon}{B} $.
+\\
+
+(Part 2) Let $ P $ be any partition of $ [a,b] $ and note that by the mean value theorem, for each subinterval $ [c_{i-1}, c_i] $ we have a point $ d_i\in [c_{i-1}, c_i]$ such that
+$$ f(c_i)-f(c_{i-1}) = f'(d_i)(c_i-c_{i-1}). $$ 
+Hence 
+$$ U(f,P)-L(f,P) = \sum_{i=1}^{n}  $$ 
 
 \end{document}
