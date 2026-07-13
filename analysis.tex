@@ -330,12 +330,35 @@ Thus, for a given $ \varepsilon>0 $, set $ \delta= \frac{\varepsilon}{B} $.
 
 (Part 2) Let $ P $ be any partition of $ [a,b] $ and note that by the mean value theorem, for each subinterval $ [c_{i-1}, c_i] $ we have a point $ d_i\in [c_{i-1}, c_i]$ such that
 $$ f(c_i)-f(c_{i-1}) = f'(d_i)(c_i-c_{i-1}). $$ 
-Hence 
-$$ U(f,P)-L(f,P) = \sum_{i=1}^{n}  $$ 
+We note that $ f'(d_i) $ is always between the min and max on each subinterval.
+Observe that $ f(b)-f(a)= \sum_{i=1}^{n} f(c_i)-f(c_{i-1}) = \sum_{i=1}^{n} f'(d_i)(c_i-c_{i-1}) $
+Since on each interval, $ f'(d_i) $  is between the min and the max of $  f' $ on each subinterval. Thus 
+$$ L(f',P)\leq f(b)-f(a) \leq U(f',P)$$ 
+It remains to show that f' is integrable.
 
 \begin{defn}
 A sequence of functions $ (f_n) $ is said to converge uniformly on a set $ S $ to a function $ f $ if
 $$ \forall \epsilon>0,  \exists N\in \N, \forall x\in S, n>N \implies |f_n(x)-f(x)|<\epsilon $$ 
 \end{defn}
+
+\section*{Uniform Continuity}
+\begin{defn}
+    A sequence of functions $ f_n $ converges \textbf{uniformly} to a function $ f $ on S
+if for all $ \varepsilon>0 $ there is an $ N\in \N $ such that for all $ x\in S $ and $ n>N $ we have $ |f_n(x)-f(x)|<\varepsilon $. 
+\end{defn}
+
+\begin{thm}
+If $ f_n $ is a sequence of continuous functions that converge uniformly to a function $ f $, then $ f $ is continuous. Can be restricted to any set.
+\end{thm}
+
+Proof Sketch: Let $ \varepsilon>0$ and $ c \in \R $. Then we observe
+$$ |f(x)-f(c)|=|f(x)-f_n(x)+f_n(x)-f_n(c)+f_n(c)-f(c)|\leq |f(x)-f_n(x)|+|f_n(x)-f_n(c)|+f_n(c)-f(c)|. $$
+Since each $ f_n $ is continuous and the convergence, $ f_n \to f $ is uniform, there exists an $ N\in \N $ such that if $ n>N $ we have $ |f_n(x)-f(x)|< \frac{\varepsilon}{3} $. Fix such a $ n $. Let $ \delta>0$ such that
+be such that 
+$$ |x-c|<\delta \implies |f_n(x)-f_n(c)|<\delta.$$ 
+Then we have $|f(x)-f_n(x)|+|f_n(x)-f_n(c)|+f_n(c)-f(c)|< \frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon$.
+
+
+
 
 \end{document}
