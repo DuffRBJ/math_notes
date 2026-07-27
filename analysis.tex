@@ -358,6 +358,25 @@ be such that
 $$ |x-c|<\delta \implies |f_n(x)-f_n(c)|<\delta.$$ 
 Then we have $|f(x)-f_n(x)|+|f_n(x)-f_n(c)|+f_n(c)-f(c)|< \frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon$.
 
+\begin{thm}
+    Let $ f_n $ be a sequence of continous functions defined on an interval $ [a,b] $ and suppose that $ f_n \to f $ converges uniformly for some $ f $. Then
+    $$ \lim_{n\to \infty} \int_{a}^{b} f_n(x)  dx = \int_{a}^{b} f(x)  dx .$$ 
+
+\end{thm}
+
+Proof Sketch:
+Fix an $ \varepsilon>0 $, then we need an $  N  $ such that for all $ n>N $, 
+$$ \left| \int_{a}^{b} f_n(x)  dx - \int_{a}^{b} f(x)  dx \right|<\varepsilon $$ 
+$$ \left| \int_{a}^{b} f_n(x)-f(x)  dx \right| \leq \int_{a}^{b} |f_n(x)-f(x)|  dx  $$ 
+Since $ f_n\to f $ uniformly, $ |f_n(x)-f(x)| $ can be made small enough.
+
+\begin{thm}
+    Suppose we have $ f_n $ a sequence of functions on an interval $ [a,b] $ and that $ f_n\to f$ converges pointwise. Suppose further that each $ f_n $ is differentiable with continuous derivative and $ (f'_n) $ converges uniformly. Then
+    $$ \lim_{n\to \infty} f_n'(x) = f'(x) $$ 
+    for all $ x\in[a,b]. $
+\end{thm}
+
+Proof sketch: Apply previous theorem. We need $ f_n' $ continuous for each $ n $ so that previous theorem applies.
 
 
 
