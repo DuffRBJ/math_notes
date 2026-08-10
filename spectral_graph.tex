@@ -152,6 +152,18 @@ $$ f''(c)=\Delta f(c)= \lim_{h\to 0} \frac{f(c+h)+f(c-h)-2f(c)}{h^2} $$
 
 Proof Sketch: Use L'Hospital's rule to turn it into previous lemma.
 
+\begin{defn}
+The graph Laplacian of a graph $ G $ is given by
+$$ L_G =D_G-M_g $$ 
+\end{defn}
+Note that for a simple graph, this matrix has the degrees on the diagonal and a $ -1 $ whenever two vertices are connected.
+
+\begin{lem}
+    For any vector $ x\in \R^{|V|}$, we have
+    $$ x^TLx = \sum_{(a,b)\in E}^{}(x(a)-x(b))^2  $$ 
+\end{lem}
+Proof:
+$$ (Lx)_a= \sum_{b\in V}^{} L_{ab}x(b) =d(a)x(a)+\sum_{b\neq \in V}^{} -\delta_{ab}x(b)    $$ 
 
 
 \end{document} 
