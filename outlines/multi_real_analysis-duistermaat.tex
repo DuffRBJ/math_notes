@@ -1,0 +1,122 @@
+
+\documentclass[12pt]{article}
+
+%%% These are some packages that are useful
+\usepackage{amsfonts, lipsum}
+\usepackage[scr]{rsfso}
+\usepackage{amsmath,amssymb, amscd,amsbsy, bbm, amsthm, enumerate}
+\usepackage[top=1in, bottom=1in, left=.45in, right=.45in]{geometry}
+\usepackage[unicode]{hyperref}
+\usepackage{tikz, xcolor, fancyhdr}
+\usepackage{graphicx, caption, subcaption}
+
+%%% Page formatting
+%\setlength{\headsep}{30pt}
+\setlength{\parindent}{0pt}
+\setlength{\textheight}{9in}
+
+
+
+%%% These define our question environment and help number things correctly
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{question}[thm]{Question}
+\newtheorem{questionS}[thm]{***Question}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+
+%%% These are some shortcuts that are handy
+\def\real{{\mathbb R}}
+\def\Natural{\mathbb{N}}
+\def\dx{\textnormal{dx}}
+\def\dy{\textnormal{dy}}
+\def\dz{\textnormal{dz}}
+\def\dt{\textnormal{dt}}
+\def\Re{\textnormal{Re}}
+\def\Im{\textnormal{Im}}
+\def\exp{\textnormal{exp}}
+\def\interior{\textnormal{interior}}
+\def\al{\alpha}
+\def\del{\delta}
+\def\Del{\Delta}
+\def\gam{\gamma}
+\def\Gam{\Gamma}
+\def\Om{\Omega}
+\def\ep{\varepsilon}
+\def\lam{\lambda}
+\def\rational{{\mathbb Q}}
+\def\integer{{\mathbb Z}}
+\def\Q{{\mathbb Q}}
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\grad{\nabla}
+\def\C{\mathcal C}
+\def\P{\mathbb{P}}
+\def\T{\mathcal T}
+\def\I{\mathcal I}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\inner}[1]{\langle #1 \rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\spanvect}{\textnormal{span}}
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup}
+\def\intersect{\cap}
+\def\Intersect{\bigcap}
+\renewcommand{\neg}{\mathord{\sim}}
+\newcommand{\ds}{\displaystyle}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\name}{Duff Baker-Jarvis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Document Starts now
+\begin{document}
+\title{Multidimensional Real Analysis - Duistermaat, Kolk}
+\date{\today}
+\author{Dr. Duff Baker-Jarvis}
+\maketitle
+
+\begin{enumerate}
+    \item Chapter 1 - Continuity
+    \begin{enumerate}
+	\item section 1.1 - Inner product and Norm
+	    \begin{itemize}
+	    \item (Defn) Inner product and Norm
+	    \item (Thm) Properties of Inner Product
+	    \item (Thm) Cauchy-Schwarz Inequality\\
+		Proof Idea: Decompose a vector $ x $ as its projection onto $ y $ plus its orthogonal component. Take the norm squared and solve for the orthogonal component. Its nonegegativity forces the CS inequality.
+	    \item (Thm) Inequalities related to the norm
+		\begin{itemize}
+		    \item Triangle inequality and extended triangle inequality
+		    \item Reverse triangle inequality
+		    \item $ \ds |x_j|\leq ||x|| \leq \sum_{i=1}^{n} |x_i| \leq \sqrt{n}||x||  $\\
+			Proof Idea: First ineqality is straight forward, second inequality can be seen by decomposing the vector and applying the triangle inequality. Third inequality can be seend by forming the vector $ x_{\text{abs}}| $ composed of the absolute values. Then take the inner product with the vector of all 1s and apply C.S.
+		    \item $ \max_{j}|x_j| \leq ||x|| \leq \sqrt{n} \max_{j} |x_j|$. This implies that for a cube or side length 2 is enclosed in a sphere of radius $ \sqrt{n} $ which is enclosed in a cube of side length $ 2\sqrt{n} $.\\
+			Proof Idea: First inequality follows from the previous part. 2nd inequality can be seen by replacing each component of $ x $ with the maximum component. The norm of the new vector is the RHS.
+		\end{itemize}
+	    \item (Defn) Distance between two vectors
+	    \item (Defn) Convergence or limit of a sequence of vectors in $ \R^n $.
+	    \item (Thm) A sequence of vectors converges iff each sequence of components converges.
+	    \item (Thm) The limit operation on vectors ist still linear.
+	    \end{itemize}
+	\item Section 1.2 - Open and closed sets
+	    \begin{itemize}
+		\item (Defn) Open Ball/neighborhood
+	    \end{itemize}
+	    
+    \end{enumerate}
+    
+\end{enumerate}
+
+
+\end{document}
